@@ -16,10 +16,11 @@ public class Assignment7 {
 		createCustomer();
 		createProject();
 		createTask();
-//		deleteProject();
-//    	deleteCustomer();
-//		logout();
-//		closeApplication();
+		deleteTask();
+		deleteProject();
+    	deleteCustomer();
+		logout();
+		closeApplication();
 	}
 	
 	public static void launchBrowser()
@@ -125,8 +126,6 @@ public class Assignment7 {
 			Thread.sleep(2000);
 			oBrowser.findElement(By.id("projectPopup_projectNameField")).sendKeys("PROJECT1");
 			Thread.sleep(2000);
-			oBrowser.findElement(By.name("projectDescriptionField")).sendKeys("Before project modification");
-			Thread.sleep(2000);
 			oBrowser.findElement(By.xpath("//*[@id=\'projectPopup_commitBtn\']/div")).click();
 			Thread.sleep(2000);
 			oBrowser.findElement(By.xpath("//*[@id=\'projectPopup_commitBtn\']/div")).click();
@@ -148,11 +147,65 @@ public class Assignment7 {
 			Thread.sleep(2000);
 			oBrowser.findElement(By.xpath("//*[@id=\'createTasksPopup_createTasksTableContainer\']/table/tbody/tr[1]/td[1]/input")).sendKeys("Task created");
 			Thread.sleep(2000);
-			oBrowser.findElement(By.xpath("//*[@id=\'createTasksPopup_createTasksTableContainer\']/table/tbody/tr[1]/td[5]/div/input")).click();
-			Thread.sleep(2000);
-			oBrowser.findElement(By.xpath("//*[@id=\'createTasksPopup_commitBtn\']/div/span")).sendKeys("Task created");
+			oBrowser.findElement(By.xpath("//*[@id=\'createTasksPopup_commitBtn\']/div/span")).click();
 			Thread.sleep(2000);
 		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	static void deleteTask()
+	{
+		try
+		{
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[1]/div[2]/div[1]/table[1]/tbody/tr/td[2]/div/div[2]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[3]/div[1]/div[2]/div[3]/div/div/div[2]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[3]/div[4]/div/div[3]/div")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskPanel_deleteConfirm_submitTitle\']")).click();
+			Thread.sleep(2000);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	static void deleteProject()
+	{
+		try
+		{
+			oBrowser.findElement(By.xpath("//*[@id=\'cpTreeBlock\']/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'cpTreeBlock\']/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[3]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[4]/div[1]/div[2]/div[3]/div/div/div[2]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[4]/div[4]/div/div[3]/div")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'projectPanel_deleteConfirm_submitTitle\']")).click();
+			Thread.sleep(2000);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	static void deleteCustomer()
+	{
+		try
+		{
+			oBrowser.findElement(By.xpath("//*[@id=\'cpTreeBlock\']/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div[3]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'cpTreeBlock\']/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div[4]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[2]/div[1]/div[4]/div/div")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[2]/div[4]/div/div[3]/div")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'customerPanel_deleteConfirm_submitTitle\']")).click();
+			Thread.sleep(2000);
+			}catch(Exception e)
 		{
 			e.printStackTrace();
 		}

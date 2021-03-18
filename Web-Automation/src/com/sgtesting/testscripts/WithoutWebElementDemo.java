@@ -18,7 +18,7 @@ public class WithoutWebElementDemo {
 		try
 		{
 			String path=System.getProperty("user.dir");
-			System.setProperty("webdriver.chrome.driver", path+"\\Library\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", path+"\\Library\\driver\\chromedriver.exe");
 			oBrowser=new ChromeDriver();
 		}catch(Exception e)
 		{
@@ -30,7 +30,7 @@ public class WithoutWebElementDemo {
 	{
 		try
 		{
-			oBrowser.get("http://localhost/login.do");
+			oBrowser.get("http://localhost:82/login.do");
 		}catch(Exception e)
 		{
 			e.printStackTrace();
