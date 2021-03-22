@@ -1,12 +1,11 @@
 package com.sgtesting.testscripts;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class Assignment7 {
+public class Assignment8 {
 	public static WebDriver oBrowser=null;
 	public static void main(String[] args) {
 		launchBrowser();
@@ -16,6 +15,7 @@ public class Assignment7 {
 		createCustomer();
 		createProject();
 		createTask();
+		modifyTask();
 		deleteTask();
 		deleteProject();
     	deleteCustomer();
@@ -149,6 +149,22 @@ public class Assignment7 {
 			Thread.sleep(2000);
 			oBrowser.findElement(By.xpath("//*[@id=\'createTasksPopup_commitBtn\']/div/span")).click();
 			Thread.sleep(2000);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	static void modifyTask()
+	{
+		try
+		{
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[1]/div[2]/div[1]/table[1]/tbody/tr/td[2]/div/div[2]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[3]/div[2]/div[1]/div[2]/div[3]/div[1]")).click();
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[3]/div[2]/div[1]/div[2]/div[3]/div[2]/div/div[1]/textarea")).sendKeys("Modify the task");
+			Thread.sleep(2000);
+			oBrowser.findElement(By.xpath("//*[@id=\'taskListBlock\']/div[3]/div[1]/div[1]")).click();
 		}catch(Exception e)
 		{
 			e.printStackTrace();
